@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package PaqueteCinco;
 
-/**
- *
- * @author TICSI
- */
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Validar {
+   
+    public boolean validar(String x){
+        Pattern pat = Pattern.compile("[a-zA-z]{1,20}");
+        Matcher mat = pat.matcher(x);
+        if(mat.matches()){
+           return true;
+        }else{
+           return false;
+        }
+    }
     
 }
