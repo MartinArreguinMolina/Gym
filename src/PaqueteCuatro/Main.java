@@ -11,6 +11,7 @@ public class Main {
     BufferedReader bufer = new BufferedReader(new InputStreamReader(System.in));
     private int opcion;
     private boolean x = false;
+    private boolean x1 = false;
 
     public static void main(String... args) throws IOException {
         Main ob = new Main();
@@ -18,11 +19,23 @@ public class Main {
         ListaPersonaDiscapacidad ob2 = new ListaPersonaDiscapacidad();
 
         do {
-            System.out.println("::::::::::MENU::::::::::"
-                    + "\n1.Menu personas"
-                    + "\n2.Menu personas discapacitadas");
-            System.out.print("R= ");
-            ob.opcion = Integer.parseInt(ob.bufer());
+            do {
+                System.out.println("");
+                System.out.println("::::::::::MENU::::::::::"
+                        + "\n1.Menu personas"
+                        + "\n2.Menu personas discapacitadas");
+                System.out.print("R= ");
+                do {
+                    try {
+                        ob.opcion = Integer.parseInt(ob.bufer());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Debes de digitar un numero...");
+                        ob.x1 = false;
+                    }
+
+                } while (ob.x1 == false);
+
+            } while (ob.opcion < 1 || ob.opcion > 2);
 
             switch (ob.opcion) {
                 case 1:
@@ -34,7 +47,7 @@ public class Main {
             }
 
         } while (ob.x == false);
-
+        System.out.println("");
     }
 
     private String bufer() throws IOException {
